@@ -15,4 +15,4 @@ I'll be making a blog website to get used to the flow in Django
 
 # Features I want to add in the future:
 - Implementing web sockets
-- CI/CD during development
+- CI/CD during production
