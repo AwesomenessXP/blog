@@ -19,7 +19,7 @@
                 <li><p><a href="{% url 'blog_posts:blog_entry' blog.id %}">{{ blog }}</a></p></li>
             </ul>
             {% empty %} <!-- output this if there is nothing in blogs section-->
-            <p>You have no blog entries yet...</p>
+            <p>You have no blogs yet...</p>
         {% endfor %}
 
         {% endblock content %}

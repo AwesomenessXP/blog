@@ -8,13 +8,12 @@ def home(request):
     return render(request, 'blog_posts/base.html', context)
 
 def blog(request):
-    entries = BlogEntry.objects.order_by('date_added')
     blogs = Blog.objects.order_by('date_added')
-    context = {'blogs':blogs, 'entries': entries}
+    context = {'blogs':blogs}
     return render(request, 'blog_posts/blog.html', context)
 
 def blog_entry(request, blog_id):
-    entries = BlogEntry.objects.order_by('date_added')
     blog = Blog.objects.get(id=blog_id)
+    entries = blog.blogentry_set.all() # this uses the 'many to one' relationship
     context = {'blog':blog, 'entries': entries}
     return render(request, 'blog_posts/entry.html', context)
