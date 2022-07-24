@@ -10,8 +10,12 @@ class Blog(models.Model):
 
 class BlogEntry(models.Model):
     blog_entry_title = models.CharField(max_length=50)
+    date_added = models.DateTimeField(auto_now_add=False)
     blog = models.ForeignKey(Blog, on_delete=models.CASCADE)
     text = models.TextField()
+
+    class Meta:
+        verbose_name_plural = 'Blog Entries'
 
     def __str__(self):
         return f"{self.blog_entry_title[:50]}"

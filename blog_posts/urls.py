@@ -5,5 +5,6 @@ from blog_posts import views
 app_name = 'blog_posts'
 urlpatterns = [
     path('', views.home, name='home'),
-    path('blog_posts/<int:blog_id/', views.)
+    path('blog/', views.blog, name='blogs'),
+    path('blog_entry/<int:blog_id>/', views.blog_entry, name='blog_entry'),
 ]

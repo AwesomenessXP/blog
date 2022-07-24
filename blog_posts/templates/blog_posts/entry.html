@@ -12,17 +12,22 @@
     <body>
         {% block content %}
 
-        <h2>Blogs</h2>
+        <h2>Entries</h2>
 
-        {% for blog in blogs %}
+        {% for entry in entries %}
             <ul>
-                <li><p><a href="{% url 'blog_posts:blog_entry' blog.id %}">{{ blog }}</a></p></li>
+                <li>
+                    <h3>{{ entry }}</h3>
+                    <p>{{ entry.text }}</p>
+                </li>
+                <hr></hr>
             </ul>
-            {% empty %} <!-- output this if there is nothing in blogs section-->
-            <p>You have no blog entries yet...</p>
+            {% empty %}
+                <p>There are no entries available</p>
         {% endfor %}
 
         {% endblock content %}
+        
         <script src="" async defer></script>
     </body>
 </html>
