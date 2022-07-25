@@ -110,7 +110,8 @@ p {
 .decorated-box {
     padding: 30px;
     border: 1px solid;
-    background-color: var(--secondary-background);
+    background-image: linear-gradient(to bottom right, rgb(0, 255, 106), rgb(0, 119, 255));
+    border-radius: 8px;
 }
 
 #logo {
