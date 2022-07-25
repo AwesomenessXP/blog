@@ -1,6 +1,7 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponseRedirect
 from .models import Blog, BlogEntry
 from .forms import BlogForm, EntryForm
+from django.urls import reverse
 
 # Create your views here.
 def home(request):
@@ -51,3 +52,29 @@ def add_entry(request, blog_id):
 
     context = {'form': form, 'blog': blog}
     return render(request, 'blog_posts/add_entry.html', context)
+
+def edit_entry(request, entry_id):
+    entry = BlogEntry.objects.get(id=entry_id)
+    blog = entry.blog
+
+    if request.method != 'POST':
+        form = EntryForm(instance=entry)
+    else:
+        form = EntryForm(instance=entry, data=request.POST)
+
+        if form.is_valid():
+            form.save()
+            return redirect('blog_posts:blog_entry', blog_id=blog.id)
+
+    context = {
+        'entry':entry,
+        'blog':blog,
+        'form':form
+    }
+    return render(request, 'blog_posts/edit_entry.html', context)
+
+def delete_entry(request, entry_id):
+    entry = BlogEntry.objects.get(id=entry_id)
+    blog = entry.blog
+    entry.delete()
+    return HttpResponseRedirect('blog_posts:blog_entry', blog_id=blog.id)
