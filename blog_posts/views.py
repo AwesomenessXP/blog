@@ -1,7 +1,10 @@
 from django.shortcuts import render, redirect, HttpResponseRedirect
 from .models import Blog, BlogEntry
 from .forms import BlogForm, EntryForm
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
+from django.views.generic import (
+    DeleteView,
+)
 
 # Create your views here.
 def home(request):
@@ -73,8 +76,9 @@ def edit_entry(request, entry_id):
     }
     return render(request, 'blog_posts/edit_entry.html', context)
 
+
 def delete_entry(request, entry_id):
     entry = BlogEntry.objects.get(id=entry_id)
     blog = entry.blog
     entry.delete()
-    return HttpResponseRedirect('blog_posts:blog_entry', blog_id=blog.id)
+    return redirect('blog_posts:blog_entry', blog_id=blog.id)

@@ -1,6 +1,5 @@
 from django.urls import path
 from blog_posts import views
-from blog_posts.views import delete_entry
 # from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 app_name = 'blog_posts'

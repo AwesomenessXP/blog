@@ -21,11 +21,7 @@
                     <p>{{ entry.text }}</p>
                     <p>{{ entry.date_added|date:'D, M n, Y' }}</p>
                     <button><a href="{% url 'blog_posts:edit_entry' entry.id %}">Edit blog entry</a></button>
-                    
-                    <form action="blog/blog_entry/delete_entry/{{entry.id}}/" method="post">
-                        {% csrf_token %}
-                        <input type="submit" name="Delete">
-                    </form>
+                    <button><a href="{% url 'blog_posts:delete_entry' entry.id %}">Delete blog entry</a></button>
                 </li>
                 <hr></hr>
             </ul>

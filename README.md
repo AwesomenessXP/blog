@@ -23,6 +23,9 @@ I'll be making a blog website to get used to the flow in Django
     - `import django_heroku`
     - `django_heroku.settings(locals())`
 
+- you DONT need a template for view + url if you delete something 
+    - question: this could work for button functions?
+
 # Features I want to add in the future:
 - Implementing web sockets
 - CI/CD during production
