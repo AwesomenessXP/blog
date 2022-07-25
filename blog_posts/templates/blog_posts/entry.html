@@ -12,24 +12,28 @@
     <body>
         {% block content %}
 
-        <h2>{{ blog }} Entries</h2>
+        <div class="section-title">
+            <h2>{{ blog }} Entries</h2>
+        </div>
 
-        {% for entry in entries %}
-            <ul>
-                <li>
-                    <h3>{{ entry }}</h3>
-                    <p>{{ entry.text }}</p>
-                    <p>{{ entry.date_added|date:'D, M n, Y' }}</p>
-                    <button><a href="{% url 'blog_posts:edit_entry' entry.id %}">Edit blog entry</a></button>
-                    <button><a href="{% url 'blog_posts:delete_entry' entry.id %}">Delete blog entry</a></button>
-                </li>
-                <hr></hr>
-            </ul>
-            {% empty %}
-                <p>There are no entries available</p>
-        {% endfor %}
+        <div class="list-contents"> 
+            {% for entry in entries %}
+                <ul>
+                    <li>
+                        <h3>{{ entry }}</h3>
+                        <p>{{ entry.text }}</p>
+                        <p>{{ entry.date_added|date:'D, M n, Y' }}</p>
+                        <button><a href="{% url 'blog_posts:edit_entry' entry.id %}">Edit blog entry</a></button>
+                        <button><a href="{% url 'blog_posts:delete_entry' entry.id %}">Delete blog entry</a></button>
+                    </li>
+                    <hr></hr>
+                </ul>
+                {% empty %}
+                    <p>There are no entries available</p>
+            {% endfor %}
 
-        <button><a href="{% url 'blog_posts:add_entry' blog.id %}">Add a new blog entry</a></button>
+            <button><a href="{% url 'blog_posts:add_entry' blog.id %}">Add a new blog entry</a></button>
+        </div>
 
         {% endblock content %}
         

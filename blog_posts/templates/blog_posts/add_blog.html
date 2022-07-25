@@ -11,12 +11,18 @@
     </head>
     <body>
         {% block content %}
-        <h2>Add a new blog</h2>
-        <form action="{% url 'blog_posts:add_blog' %}" method="post">
-            {% csrf_token %}
-            {{form.as_p}}
-            <button name="submit">Add blog</button>
-        </form>
+
+        <div class="section-title"> 
+            <h2>Add a new blog</h2>
+        </div>
+
+        <div class="add-blog-container">
+            <form action="{% url 'blog_posts:add_blog' %}" method="post" class="form-contents">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button name="submit">Add blog</button>
+            </form>
+        </div>
         {% endblock content %}
         
         <script src="" async defer></script>
