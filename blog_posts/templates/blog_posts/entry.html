@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        {% block title %}<title>{{ blog }}</title>{% endblock title %}
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
@@ -12,19 +12,22 @@
     <body>
         {% block content %}
 
-        <h2>Entries</h2>
+        <h2>{{ blog }} Entries</h2>
 
         {% for entry in entries %}
             <ul>
                 <li>
                     <h3>{{ entry }}</h3>
                     <p>{{ entry.text }}</p>
+                    <p>{{ entry.date_added|date:'D, M n, Y' }}</p>
                 </li>
                 <hr></hr>
             </ul>
             {% empty %}
                 <p>There are no entries available</p>
         {% endfor %}
+
+        <button><a href="{% url 'blog_posts:add_entry' blog.id %}">Add a new blog entry</a></button>
 
         {% endblock content %}
         
