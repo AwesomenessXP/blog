@@ -148,3 +148,7 @@ h3 {
 .add {
     background-color: rgb(96, 218, 96);
 }
+
+.list-contents, .add-blog-container, .form-container {
+    margin: 0px 9% 0px 0px;
+}
