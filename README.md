@@ -19,6 +19,10 @@ I'll be making a blog website to get used to the flow in Django
 
 - access the child's parent class to modify an attribute BEFORE saving it to the database
 
+- ERROR FIXED: when using django-heroku, do:
+    - `import django_heroku`
+    - `django_heroku.settings(locals())`
+
 # Features I want to add in the future:
 - Implementing web sockets
 - CI/CD during production
