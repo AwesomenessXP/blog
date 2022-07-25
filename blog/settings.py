@@ -126,5 +126,6 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Heroku settings. import
 django_heroku
 django_heroku.settings(locals())
