@@ -18,14 +18,18 @@
 
         <div class="list-contents"> 
         {% for blog in blogs %}
+        <div class="grid">
             <ul>
                 <li><p><a href="{% url 'blog_posts:blog_entry' blog.id %}">{{ blog }} - {{ blog.date_added|date:'D, M n, Y' }}</a></p></li>
                 <hr>
             </ul>
             {% empty %} <!-- output this if there is nothing in blogs section-->
             <p>You have no blogs yet...</p>
+        </div>
         {% endfor %}
-        <button><a href="{% url 'blog_posts:add_blog' %}">Add a new blog<a></button>
+            <div class="add-blog-btn">
+                <button class="add"><a href="{% url 'blog_posts:add_blog' %}">Add a new blog<a></button>
+            </div>
         </div>
 
         {% endblock content %}

@@ -19,7 +19,7 @@
             <form action="{% url 'blog_posts:add_entry' blog.id %}" method="post">
                 {% csrf_token %}
                 {{form.as_p}}
-                <button>Add entry</button>
+                <button class="add">Add entry</button>
             </form>
         </div>
         {% endblock content%}

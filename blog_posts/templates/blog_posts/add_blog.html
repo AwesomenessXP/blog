@@ -20,7 +20,7 @@
             <form action="{% url 'blog_posts:add_blog' %}" method="post" class="form-contents">
                 {% csrf_token %}
                 {{form.as_p}}
-                <button name="submit">Add blog</button>
+                <button name="submit" class="add">Add blog</button>
             </form>
         </div>
         {% endblock content %}
